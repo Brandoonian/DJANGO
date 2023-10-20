@@ -1,0 +1,19 @@
+STARTING WITH PART 2 OF TECH WITH TIM VIDEO:
+
+- Added 'main' as an app to the INSTALLED APPS section in setting.py. Typed "'main.apps.MainConfig'"
+- Went to /mysite/ and entered the command 'python manage.py migrate' to make necessary changes to the project
+- Defined some models for the database. Created a to do list class and a class for the items on that to to list.
+- In /mysite/ entered the command 'python manage.py makemigrations'. This is like adding something to staging in Git
+- Again, entered the command 'python manage.py migrate' to make necessary changes
+- In /mysite/ entered the command 'python .\manage.py shell' which allows us to add some things to database.
+- With the command 'from main.models import Item, ToDoList', we import our models so we can use them to create objects and store them in the database.
+- Created to do list OBJECT with the line 't = ToDoList(name="Tim\'s List")'.
+    - Saved to database with line t.save()
+    - To query all objects in database, we can enter 'ToDoList.objects.all()'.
+    - To query first object, we can search by ID with line 'ToDoList.objects.get(id=1)'.
+    - To query by name, we can enter line 'ToDoList.objects.get(name=Tim's List)'
+- Because 'Items' are related to 'ToDoList', there's a special way to create them within our to do list.
+    - To do this we enter line 't.item_set.create(text="Go to mall", complete=False)'
+        - To To query first item, we can search by ID with line 't.item_set.get(id=1)'.
+- We erased view one in views.py and erased the path in main\urls.py.
+- We enter '<int:id>' to the first path to search for integer in our path and pass it to the function 'views.index'
