@@ -4,9 +4,9 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import ToDoList, Item
 
-def index(response, id, name):
+def index(response, id):
     ls = ToDoList.objects.get(id=id)
-    print(name)
-    return HttpResponse(f"<h1>{ls.name}</h1> <h2>{name}</h2>")
+
+    return HttpResponse(f"<h1>{ls.name}</h1>")
 
 

@@ -4,7 +4,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path("<int:id>/<str:name>", views.index, name="index"),  # (Homepage, Index page, Name is "index"
+    path("<int:id>", views.index, name="index"),  # (Homepage, Index page, Name is "index")
 
 ]
 
