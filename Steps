@@ -17,3 +17,36 @@ STARTING WITH PART 2 OF TECH WITH TIM VIDEO:
         - To To query first item, we can search by ID with line 't.item_set.get(id=1)'.
 - We erased view one in views.py and erased the path in main\urls.py.
 - We enter '<int:id>' to the first path to search for integer in our path and pass it to the function 'views.index'
+ADMIN DASHBOARD
+- In 'C:\Users\12692\PycharmProjects\DJANGO\mysite>' we enter command 'python manage.py shell'.
+- We import the models: 'from main.models import Item, ToDoList'
+- In next line, we define 't = ToDoList.objects' to make it easier to get objects.
+- 't.all()' = get all objects
+- 't.get(id=1)' = get the first object
+- 't.filter(name__startswith="Tim")' = get the object that starts with "Tim".
+- To delete an object:
+    - define it I.E. 'del_object = t.get(id=1)'
+    - 'del_object.delete()' = delete object that was defined above.
+- To create admin, type command 'python manage.py createsuperuser'.
+    - Login info for this project:
+        - Username: Tim
+        - Email: tim@techwithtim.net
+        - Password: 123456789
+TEMPLATES AND HTML
+- In 'main\urls.py', we create a new path for the homepage.
+    - path("", views.home, name="home")
+- In 'views.py', we create a new function and leave it blank for now.
+    - def home(response):
+        pass
+- To make template, we first create two new folders.
+    - A new folder inside of 'main' called 'templates'.
+        - A new folder inside 'templates' called 'main'.
+            - Tim explains that it is necessary to have a folder with the same name as the application to load the templates.
+- Inside of 'templates\main' folder, we make two html files:
+    - 'base.html' which is a template to serve as the standard layout of all webpages.
+    - 'home.html' which is a template to serve as the homepage and can inherit the base template.
+- In the 'index' method of 'views.py' we replace the 'HttpResponse' with 'render(response, "main/base.html", {})'
+    - 'response,' = first parameter in the method.
+    - '"main/base.html",' = template location.
+    - '{} = open dictionary'
+- We copy and paste into 'home' method and then change template location to '"main/home.html"'.
