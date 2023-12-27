@@ -50,3 +50,18 @@ TEMPLATES AND HTML
     - '"main/base.html",' = template location.
     - '{} = open dictionary'
 - We copy and paste into 'home' method and then change template location to '"main/home.html"'.
+SIMPLE FORMS
+- We create a new path in 'main/urls.py' for a page that will have a form that will allow us to make a todo list.
+- We create a new function in 'views.py' called 'create'.
+- We design the webpage with an HTML file called 'create.html'.
+    - We create a form using HTML.
+- We make a new file in the 'main' directory of our application called "forms.py".
+    - We create a class that will define the attributes in the fields in our form.
+- In 'view.py', we pass '{"form":form}' as the last argument in the 'render' call of the 'create' function.
+- We create an instance of the form 'class CreateNewList(forms.Form)' in the 'create' function and pass it to 'create.html'.
+- In 'create.html', we can modify the layout of the webpage by adding to the 'form' variable:
+    - '{{form.as_table}}' = default/table
+    - '{{form.as_p}}' = all items will list vertically
+    - '{{form.as_ul}}' = bulleted list
+- To make checkbox optional, we enter the argument 'required=False' into the 'BooleanField' of 'CreateNewList' class.
+-
